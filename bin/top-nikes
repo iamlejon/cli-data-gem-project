@@ -1,0 +1,8 @@
+#!/usr/bin/env ruby
+
+require_relative "../lib/top_nikes"
+require "bundler/setup"
+
+#Initializes the CLI class then calls the method.
+#Programming in the CLI class is called encapsulation
+TopNikes::CLI.new.menu
