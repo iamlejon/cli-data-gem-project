@@ -10,26 +10,30 @@ class TopNikes::CLI
     mcat = gets.strip.downcase
       if mcat == "lifestyle"
         puts ""
-        puts ""
-        @mlifestyle = TopNikes::Nikes.scrape_mens_lifestyle
+      puts "Mens Best Selling LIFESTYLE Nike Selection as of Today - Nike.com"
+        TopNikes::Nikes.scrape_mens_lifestyle
+        display
         puts ""
         mensmenu
       elsif mcat == "basketball"
         puts ""
-        puts ""
-        @mbasketball = TopNikes::Nikes.scrape_mens_basketball
+        puts "Mens Best Selling BASKETBALL Nike Selection as of Today - Nike.com"
+        TopNikes::Nikes.scrape_mens_basketball
+        display
         puts ""
         mensmenu
       elsif mcat == "running"
         puts ""
-        puts ""
-        @mrunning = TopNikes::Nikes.scrape_mens_running
+        puts "Mens Best Selling RUNNING Nike Selection as of Today - Nike.com"
+        TopNikes::Nikes.scrape_mens_running
+        display
         puts ""
         mensmenu
       elsif mcat == "all"
         puts ""
-        puts ""
-        @allmens = TopNikes::Nikes.scrape_mens_all
+        puts "Mens Best Selling Nike Selection as of Today - Nike.com"
+        TopNikes::Nikes.scrape_mens_all
+        display
         puts ""
         mensmenu
       elsif mcat == "cancel"
@@ -43,6 +47,13 @@ class TopNikes::CLI
       end
   end
 
+  def display
+    TopNikes::Nikes.all.each do |i|
+      puts "Item: #{i.name}"
+      puts "Price: #{i.price}"
+    end
+  end
+
   def womensmenu
     puts ""
     puts ""
@@ -51,26 +62,30 @@ class TopNikes::CLI
     wcat = gets.strip.downcase
       if wcat == "lifestyle"
         puts ""
-        puts ""
-        @wlifestyle = TopNikes::Nikes.scrape_womens_lifestyle
+        puts "Womens Best Selling LIFESTYLE Nike Selection as of Today - Nike.com"
+      TopNikes::Nikes.scrape_womens_lifestyle
+        display
         puts ""
         womensmenu
       elsif wcat == "basketball"
         puts ""
-        puts ""
-        @wbasketball = TopNikes::Nikes.scrape_womens_basketball
+      puts "Womens Best Selling BASKETBALL Nike Selection as of Today - Nike.com"
+      TopNikes::Nikes.scrape_womens_basketball
+        display
         puts ""
         womensmenu
       elsif wcat == "running"
         puts ""
-        puts ""
-        @wrunning = TopNikes::Nikes.scrape_womens_running
+      puts "Womens Best Selling RUNNING Nike Selection as of Today - Nike.com"
+      TopNikes::Nikes.scrape_womens_running
+        display
         puts ""
         womensmenu
       elsif wcat == "all"
         puts ""
-        puts ""
-        @allwomens = TopNikes::Nikes.scrape_womens_all
+        puts "Womens Best Selling Nike Selection as of Today - Nike.com"
+        TopNikes::Nikes.scrape_womens_all
+        display
         puts ""
         womensmenu
       elsif wcat == "cancel"
