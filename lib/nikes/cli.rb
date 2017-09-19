@@ -3,6 +3,7 @@
 class TopNikes::CLI
 
   def mensmenu
+    clear
     puts ""
     puts ""
     puts "Nike Mens Footwear:: Select from the following"
@@ -54,7 +55,12 @@ class TopNikes::CLI
     end
   end
 
+  def clear
+    TopNikes::Nikes.all.clear
+  end
+
   def womensmenu
+    clear
     puts ""
     puts ""
     puts "Nike Womens Footwear:: Select from the following"
