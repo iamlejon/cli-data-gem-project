@@ -1,5 +1,5 @@
 #CLI controller - Responsible for business logic or client interaction
-
+require 'pry'
 class TopNikes::CLI
 
   def mensmenu
@@ -7,7 +7,7 @@ class TopNikes::CLI
     puts ""
     puts ""
     puts "Nike Mens Footwear:: Select from the following"
-    puts "Lifestyle | Basketball | Running | All | Cancel"
+    puts "Lifestyle | Soccer | Running | All | Cancel"
     mcat = gets.strip.downcase
       if mcat == "lifestyle"
         puts ""
@@ -16,10 +16,10 @@ class TopNikes::CLI
         display
         puts ""
         mensmenu
-      elsif mcat == "basketball"
+      elsif mcat == "soccer"
         puts ""
-        puts "Mens Best Selling BASKETBALL Nike Selection as of Today - Nike.com"
-        TopNikes::Nikes.scrape_mens_basketball
+        puts "Mens Best Selling S Nike Selection as of Today - Nike.com"
+        TopNikes::Nikes.scrape_mens_soccer
         display
         puts ""
         mensmenu
@@ -126,5 +126,8 @@ class TopNikes::CLI
     end
   end
 end
+
+
+
 
 end #ends class

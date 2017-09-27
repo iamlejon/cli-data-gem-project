@@ -45,9 +45,9 @@ def self.scrape_mens_all
         end
     end
 
-        def self.scrape_mens_basketball
+        def self.scrape_mens_soccer
             #setup to open the URL
-            doc = Nokogiri::HTML(open("https://store.nike.com/us/en_us/pw/mens-best-basketball-shoes/7puZr3nZ8r1Zpi1Zoi3"))
+            doc = Nokogiri::HTML(open("https://store.nike.com/us/en_us/pw/mens-best-soccer-shoes/7puZr3nZ896Zpi1Zoi3"))
             doc.css(".grid-item-box").each do |item|
               item_name = item.css('.product-display-name').text.strip
               item_price = item.css('.prices').text.strip
@@ -127,4 +127,7 @@ def self.scrape_mens_all
                     end
                     end
 
+                  def self.expensive_shoes
+                    @@all.select { |shoe|shoe.price[1..-1].to_i > 100 }
+                  end
 end #ends the class
